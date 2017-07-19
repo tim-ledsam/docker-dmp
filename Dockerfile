@@ -33,7 +33,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get install -y --force
 RUN cd /opt && wget https://dl.google.com/android/repository/tools_r25.2.3-linux.zip && \
   unzip tools_r25.2.3-linux.zip -d android-sdk-linux && \
   rm tools_r25.2.3-linux.zip && \
-    (echo y | android-sdk-linux/tools/android update sdk -u -a -t 1,2,3,6,10,14,16,23,32,33,34,35,36,38,124,160,166,167,168,169,170,171,172)
+    (echo y | android-sdk-linux/tools/android -s update sdk --no-ui -u -a -t 1,2,3,6,10,14,16,23,32,33,34,35,36,38,124,160,166,167,168,169,170,171,172)
 
 
 ENV ANDROID_HOME /opt/android-sdk-linux
