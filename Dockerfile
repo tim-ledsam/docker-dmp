@@ -21,7 +21,7 @@ RUN apt-get update
 RUN apt-get install -y git
 RUN apt-get install -y unzip
 
-RUN npm install -g grunt-cli@"1.2.0" gulp@"3.9.1" bower@"1.8.0" cordova@"7.0.1" ionic@"3.5.0" gradle
+RUN npm install -g grunt-cli@"1.2.0" gulp@"3.9.1" bower@"1.8.0" cordova@"7.0.1" ionic@"3.5.0"
 
 RUN npm cache verify
 
@@ -52,6 +52,12 @@ RUN \
   apt-get update && \
   apt-get install -y google-chrome-stable && \
   rm -rf /var/lib/apt/lists/*
+
+# Install gradle
+RUN \
+  add-apt-repository ppa:cwchien/gradle && \
+  apt-get update && \
+  apt-get install -y gradle
 
 # Cleaning
 RUN apt-get clean
