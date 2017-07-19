@@ -58,7 +58,7 @@ RUN echo "deb http://ppa.launchpad.net/cwchien/gradle/ubuntu trusty main" | tee 
 RUN echo "deb-src http://ppa.launchpad.net/cwchien/gradle/ubuntu trusty main" | tee -a /etc/apt/sources.list.d/gradle.list
 RUN \
   apt-get update && \
-  apt-get install -y gradle
+  apt-get install gradle
 
 # Cleaning
 RUN apt-get clean
