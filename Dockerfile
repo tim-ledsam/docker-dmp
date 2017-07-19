@@ -54,8 +54,9 @@ RUN \
   rm -rf /var/lib/apt/lists/*
 
 # Install gradle
-RUN echo "deb http://ppa.launchpad.net/cwchien/gradle/ubuntu trusty main" | tee /etc/apt/sources.list.d/gradle.list 
-RUN echo "deb-src http://ppa.launchpad.net/cwchien/gradle/ubuntu trusty main" | tee -a /etc/apt/sources.list.d/gradle.list
+RUN \
+  echo "deb http://ppa.launchpad.net/cwchien/gradle/ubuntu trusty main" | tee /etc/apt/sources.list.d/gradle.list && \
+  echo "deb-src http://ppa.launchpad.net/cwchien/gradle/ubuntu trusty main" | tee -a /etc/apt/sources.list.d/gradle.list
 RUN \
   apt-get update && \
   apt-get install gradle
