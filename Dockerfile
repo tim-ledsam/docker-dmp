@@ -33,6 +33,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get install -y --force
 RUN cd /opt && wget https://dl.google.com/android/repository/tools_r25.2.3-linux.zip && \
   unzip tools_r25.2.3-linux.zip -d android-sdk-linux && \
   rm tools_r25.2.3-linux.zip && \
+    (mkdir -p /root/.android) && \
     (touch /root/.android/repositories.cfg) && \
     (yes y | android-sdk-linux/tools/bin/sdkmanager "platforms;android-26") && \
     (yes y | android-sdk-linux/tools/bin/sdkmanager "platform-tools") && \
