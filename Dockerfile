@@ -1,5 +1,5 @@
 FROM node:slim
-MAINTAINER netizy <docker@netizy.com>
+MAINTAINER swn <swn@softwire.com>
 
 # auto validate license
 RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
@@ -38,6 +38,14 @@ RUN cd /opt && wget https://dl.google.com/android/repository/tools_r25.2.3-linux
 
 ENV ANDROID_HOME /opt/android-sdk-linux
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+
+# Install google chrome for tests
+RUN \
+  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
+  echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list && \
+  apt-get update && \
+  apt-get install -y google-chrome-stable && \
+  rm -rf /var/lib/apt/lists/*
 
 # Cleaning
 RUN apt-get clean
