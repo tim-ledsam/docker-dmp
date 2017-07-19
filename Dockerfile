@@ -55,6 +55,7 @@ RUN \
 
 # Install gradle
 RUN \
+  apt-get install software-properties-common && \
   add-apt-repository ppa:cwchien/gradle && \
   apt-get update && \
   apt-get install -y gradle
