@@ -1,5 +1,5 @@
 FROM node:slim
-MAINTAINER swn <swn@softwire.com>
+MAINTAINER tal <tal@softwire.com>
 
 # auto validate license
 RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
